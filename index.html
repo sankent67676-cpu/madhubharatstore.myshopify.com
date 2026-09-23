@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Madhu Bharat Store | Better Products Better Life</title>
+<meta name="description" content="Madhu Bharat Store - Better Products, Better Life. Discover trending products, great prices and fast delivery.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#faf9f6;
+  color:#111;
+}
+a{text-decoration:none;color:inherit}
+
+:root{
+  --gold:#d4a017;
+  --gold2:#f3c64b;
+  --black:#090909;
+  --cream:#faf9f6;
+}
+
+/* TOP BAR */
+.topbar{
+  background:#080808;
+  color:#fff;
+  text-align:center;
+  padding:9px 15px;
+  font-size:13px;
+  letter-spacing:.5px;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid #eee;
+}
+
+.nav{
+  max-width:1250px;
+  margin:auto;
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 22px;
+  gap:20px;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-circle{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#f6cf58,#b77b00);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#080808;
+  font-weight:900;
+  font-size:20px;
+  border:3px solid #111;
+}
+
+.brand{
+  font-family:Georgia,serif;
+  font-size:22px;
+  font-weight:700;
+}
+
+.brand span{color:#c28b00}
+
+nav{
+  display:flex;
+  gap:28px;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{color:#b27b00}
+
+.nav-btn{
+  background:#111;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:30px;
+  font-size:13px;
+}
+
+/* HERO */
+.hero{
+  max-width:1250px;
+  margin:22px auto;
+  padding:0 18px;
+}
+
+.slider{
+  position:relative;
+  height:470px;
+  overflow:hidden;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 80% 30%,rgba(239,190,57,.25),transparent 35%),
+    linear-gradient(120deg,#050505,#191919 55%,#080808);
+  color:#fff;
+  box-shadow:0 18px 50px rgba(0,0,0,.15);
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  padding:55px 8%;
+  opacity:0;
+  transform:translateX(30px);
+  transition:all .7s ease;
+}
+
+.slide.active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.slide-content{max-width:650px}
+
+.offer{
+  display:inline-block;
+  background:var(--gold);
+  color:#111;
+  padding:8px 15px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+
+.slide h1{
+  font-family:Georgia,serif;
+  font-size:clamp(42px,6vw,76px);
+  line-height:.98;
+  margin-bottom:20px;
+}
+
+.slide h1 span{color:#e5b62f}
+
+.slide p{
+  color:#ddd;
+  font-size:17px;
+  line-height:1.6;
+  max-width:530px;
+  margin-bottom:28px;
+}
+
+.gold-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,#e9bd42,#b77a00);
+  color:#111;
+  padding:15px 28px;
+  border-radius:30px;
+  font-weight:800;
+  font-size:14px;
+}
+
+.dark-btn{
+  display:inline-block;
+  border:1px solid #777;
+  color:#fff;
+  padding:14px 25px;
+  border-radius:30px;
+  font-weight:700;
+  margin-left:10px;
+}
+
+.slider-controls{
+  position:absolute;
+  bottom:25px;
+  left:8%;
+  display:flex;
+  gap:8px;
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#777;
+  cursor:pointer;
+}
+
+.dot.active{background:#e2b331;width:28px;border-radius:10px}
+
+/* BENEFITS */
+.benefits{
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 18px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.benefit{
+  background:#fff;
+  padding:22px;
+  border-radius:18px;
+  text-align:center;
+  border:1px solid #eee;
+}
+
+.benefit-icon{font-size:25px;margin-bottom:8px}
+.benefit strong{display:block;font-size:14px;margin-bottom:5px}
+.benefit small{color:#777}
+
+/* SECTION */
+.section{
+  max-width:1200px;
+  margin:75px auto;
+  padding:0 18px;
+}
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:28px;
+}
+
+.section-head h2{
+  font-family:Georgia,serif;
+  font-size:36px;
+}
+
+.section-head p{
+  color:#777;
+  margin-top:8px;
+}
+
+.view-all{
+  color:#a87500;
+  font-weight:700;
+  font-size:14px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #eee;
+  transition:.3s;
+}
+
+.product:hover{
+  transform:translateY(-7px);
+  box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+.product-img{
+  height:250px;
+  background:linear-gradient(135deg,#f0eee8,#fff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-body{padding:18px}
+
+.product-name{
+  font-weight:700;
+  margin-bottom:9px;
+  min-height:38px;
+}
+
+.price{
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.buy{
+  display:block;
+  width:100%;
+  text-align:center;
+  background:#111;
+  color:#fff;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  font-size:13px;
+}
+
+.buy:hover{background:#b37c00}
+
+/* VIDEO */
+.video-section{
+  background:#080808;
+  color:#fff;
+  padding:70px 0;
+  margin:80px 0;
+}
+
+.video-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:0 18px;
+}
+
+.video-title{text-align:center;margin-bottom:35px}
+.video-title h2{font-family:Georgia,serif;font-size:40px}
+.video-title p{color:#aaa;margin-top:10px}
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.video-card{
+  background:#151515;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #292929;
+}
+
+.video-placeholder{
+  height:430px;
+  background:
+    linear-gradient(160deg,#222,#080808);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:12px;
+}
+
+.play{
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  background:#d6a51e;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  font-size:25px;
+}
+
+.video-card-info{padding:17px}
+.video-card-info strong{display:block;margin-bottom:7px}
+.video-card-info span{color:#aaa;font-size:13px}
+
+/* CTA */
+.cta{
+  max-width:1200px;
+  margin:80px auto;
+  padding:0 18px;
+}
+
+.cta-box{
+  background:linear-gradient(135deg,#111,#29210d);
+  color:#fff;
+  border-radius:25px;
+  padding:60px;
+  text-align:center;
+}
+
+.cta-box h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.cta-box p{color:#ccc;margin-bottom:25px}
+
+/* FOOTER */
+footer{
+  background:#080808;
+  color:#fff;
+  padding:55px 20px 25px;
+}
+
+.footer-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-brand h2{
+  font-family:Georgia,serif;
+  color:#e0b331;
+  margin-bottom:12px;
+}
+
+.footer-brand p{
+  color:#aaa;
+  line-height:1.7;
+  max-width:380px;
+}
+
+footer h3{margin-bottom:15px;font-size:14px}
+footer a{display:block;color:#aaa;margin:10px 0;font-size:13px}
+footer a:hover{color:#e0b331}
+
+.copyright{
+  max-width:1200px;
+  margin:40px auto 0;
+  padding-top:20px;
+  border-top:1px solid #292929;
+  text-align:center;
+  color:#777;
+  font-size:12px;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+  nav{display:none}
+  .nav{padding:10px 15px}
+  .slider{height:500px}
+  .slide{padding:35px 25px}
+  .slide h1{font-size:46px}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .video-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:500px){
+  .brand{font-size:17px}
+  .logo-circle{width:43px;height:43px;font-size:16px}
+  .slider{height:470px;border-radius:18px}
+  .slide h1{font-size:40px}
+  .slide p{font-size:14px}
+  .dark-btn{display:none}
+  .benefits{grid-template-columns:1fr 1fr}
+  .products{gap:10px}
+  .product-img{height:190px}
+  .product-body{padding:13px}
+  .product-name{font-size:13px}
+  .price{font-size:17px}
+  .section-head h2{font-size:28px}
+  .cta-box{padding:40px 20px}
+  .cta-box h2{font-size:32px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  ✨ PREMIUM PRODUCTS • GREAT PRICES • FAST & SAFE DELIVERY ✨
+</div>
+
+<header>
+  <div class="nav">
+
+    <a href="#" class="logo-area">
+      <div class="logo-circle">MB</div>
+      <div class="brand">MADHU <span>BHARAT</span></div>
+    </a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#videos">Videos</a>
+      <a href="#offers">Offers</a>
+    </nav>
+
+    <a class="nav-btn"
+       href="https://madhubharatstore.myshopify.com/">
+       SHOP NOW
+    </a>
+
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+
+<div class="slider">
+
+  <div class="slide active">
+    <div class="slide-content">
+      <span class="offer">LIMITED TIME OFFER</span>
+      <h1>UP TO <span>30% OFF</span></h1>
+      <p>
+        Discover trending products, smart essentials and amazing deals
+        from Madhu Bharat Store.
+      </p>
+      <a class="gold-btn"
+         href="https://madhubharatstore.myshopify.com/">
+         SHOP NOW →
+      </a>
+      <a class="dark-btn" href="#products">EXPLORE</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <span class="offer">NEW COLLECTION</span>
+      <h1>BETTER <span>PRODUCTS.</span></h1>
+      <p>
+        Quality products selected to make your everyday life easier,
+        smarter and better.
+      </p>
+      <a class="gold-btn"
+         href="https://madhubharatstore.myshopify.com/">
+         DISCOVER NOW →
+      </a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <span class="offer">MADHU BHARAT STORE</span>
+      <h1>BETTER <span>LIFE.</span></h1>
+      <p>
+        Shop confidently with secure checkout through our official
+        Shopify store.
+      </p>
+      <a class="gold-btn"
+         href="https://madhubharatstore.myshopify.com/">
+         START SHOPPING →
+      </a>
+    </div>
+  </div>
+
+  <div class="slider-controls">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+</div>
+</section>
+
+<section class="benefits">
+
+  <div class="benefit">
+    <div class="benefit-icon">🛡️</div>
+    <strong>Trusted Quality</strong>
+    <small>Products selected with care</small>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">🏷️</div>
+    <strong>Best Prices</strong>
+    <small>Great value for your money</small>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">🚚</div>
+    <strong>Fast Delivery</strong>
+    <small>Fast & safe shipping</small>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">❤️</div>
+    <strong>Your Happiness</strong>
+    <small>Our priority</small>
+  </div>
+
+</section>
+
+<section class="section" id="products">
+
+  <div class="section-head">
+    <div>
+      <h2>Trending Products</h2>
+      <p>Discover products people are loving.</p>
+    </div>
+
+    <a class="view-all"
+       href="https://madhubharatstore.myshopify.com/">
+       VIEW ALL →
+    </a>
+  </div>
+
+  <div class="products">
+
+    <div class="product">
+      <div class="product-img">
+        <span style="font-size:50px">🛍️</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">3D LED Writing Pad</div>
+        <div class="price">₹1,200</div>
+        <a class="buy"
+           href="https://madhubharatstore.myshopify.com/">
+           BUY NOW
+        </a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img">
+        <span style="font-size:50px">👕</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Adidas Summer Tracksuit</div>
+        <div class="price">₹499</div>
+        <a class="buy"
+           href="https://madhubharatstore.myshopify.com/">
+           BUY NOW
+        </a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img">
+        <span style="font-size:50px">💄</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Cosmetic Storage Case</div>
+        <div class="price">₹780</div>
+        <a class="buy"
+           href="https://madhubharatstore.myshopify.com/">
+           BUY NOW
+        </a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img">
+        <span style="font-size:50px">👓</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Reading Glasses</div>
+        <div class="price">₹285</div>
+        <a class="buy"
+           href="https://madhubharatstore.myshopify.com/">
+           BUY NOW
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="video-section" id="videos">
+
+  <div class="video-inner">
+
+    <div class="video-title">
+      <h2>Watch. Discover. Shop.</h2>
+      <p>See our products in action.</p>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <div class="video-placeholder">
+          <div class="play">▶</div>
+          <span>PRODUCT VIDEO</span>
+        </div>
+        <div class="video-card-info">
+          <strong>Featured Product</strong>
+          <span>Tap below to shop this product</span>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-placeholder">
+          <div class="play">▶</div>
+          <span>PRODUCT VIDEO</span>
+        </div>
+        <div class="video-card-info">
+          <strong>Trending Now</strong>
+          <span>Tap below to discover</span>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-placeholder">
+          <div class="play">▶</div>
+          <span>PRODUCT VIDEO</span>
+        </div>
+        <div class="video-card-info">
+          <strong>New Arrival</strong>
+          <span>Tap below to shop</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section" id="offers">
+
+  <div class="section-head">
+    <div>
+      <h2>Special Offers</h2>
+      <p>Limited-time deals from our store.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-box">
+      <h2>GET UP TO 30% OFF</h2>
+      <p>
+        Explore our latest products and exclusive offers.
+      </p>
+
+      <a class="gold-btn"
+         href="https://madhubharatstore.myshopify.com/">
+         SHOP THE OFFER →
+      </a>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <h2>MADHU BHARAT STORE</h2>
+      <p>
+        Better Products. Better Life.
+        Discover quality products at great prices.
+      </p>
+    </div>
+
+    <div>
+      <h3>SHOP</h3>
+      <a href="#products">Products</a>
+      <a href="#videos">Product Videos</a>
+      <a href="#offers">Offers</a>
+    </div>
+
+    <div>
+      <h3>QUICK LINKS</h3>
+      <a href="https://madhubharatstore.myshopify.com/">Shopify Store</a>
+      <a href="#home">Home</a>
+      <a href="#products">Best Sellers</a>
+    </div>
+
+    <div>
+      <h3>CONTACT</h3>
+      <a href="mailto:contact@madhubharatstore.com">Email Us</a>
+      <a href="https://madhubharatstore.myshopify.com/">Visit Store</a>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Madhu Bharat Store. All Rights Reserved.
+  </div>
+
+</footer>
+
+<script>
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let current = 0;
+
+function showSlide(index){
+  slides.forEach((slide,i)=>{
+    slide.classList.toggle("active",i === index);
+  });
+
+  dots.forEach((dot,i)=>{
+    dot.classList.toggle("active",i === index);
+  });
+
+  current = index;
+}
+
+dots.forEach((dot,i)=>{
+  dot.addEventListener("click",()=>showSlide(i));
+});
+
+setInterval(()=>{
+  current = (current + 1) % slides.length;
+  showSlide(current);
+},4500);
+</script>
+
+</body>
+</html>
